@@ -1,7 +1,12 @@
 <h1>Adicionar Quarto a Reserva para Grupo</h1>
 <%= form_with(model: @booking_room, url: inn_dashboard_group_bookings_path) do |f| %>
   <div class="mb-3">
+    <%= f.label :inn_room_id, class: 'form-label', for: 'event_type_select' %>
+    <%= f.collection_select :inn_room_id, @inn_rooms, :id, :name %>
+  </div>
+  <div class="mb-3">
     <%= f.label :people_quantity, class: "form-label" %>
     <%= f.number_field :people_quantity, class: "form-control" %>
+  </div>
   <%= f.submit class: 'btn btn-success' %>
 <% end %>
