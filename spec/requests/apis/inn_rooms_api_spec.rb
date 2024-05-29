@@ -21,5 +21,12 @@ describe 'Inn Rooms API' do
       expect(json_response["guest_limit"]).to eq 3
       expect(json_response["daily_rate_cents"]).to eq 100
     end
+
+    it 'fail if inn_room.id not found' do
+      
+      get "/api/v1/inn_rooms/99999999999"
+
+      expect(response.status).to eq 404
+    end
   end
 end
