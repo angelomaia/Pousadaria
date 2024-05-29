@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_175256) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_183134) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -50,6 +50,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_175256) do
     t.datetime "updated_at", null: false
     t.string "neighborhood"
     t.index ["inn_id"], name: "index_addresses_on_inn_id"
+  end
+
+  create_table "booking_rooms", force: :cascade do |t|
+    t.integer "people_quantity"
+    t.integer "inn_room_id", null: false
+    t.integer "group_booking_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_booking_id"], name: "index_booking_rooms_on_group_booking_id"
+    t.index ["inn_room_id"], name: "index_booking_rooms_on_inn_room_id"
   end
 
   create_table "group_bookings", force: :cascade do |t|
@@ -113,6 +123,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_175256) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "inns"
+  add_foreign_key "booking_rooms", "group_bookings"
+  add_foreign_key "booking_rooms", "inn_rooms"
   add_foreign_key "group_bookings", "inns"
   add_foreign_key "inn_rooms", "inns"
   add_foreign_key "inns", "inn_owners"

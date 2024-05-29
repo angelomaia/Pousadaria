@@ -63,5 +63,9 @@ describe 'Inn owner tries to register a new group booking' do
     click_on 'Criar Reserva para Grupo'
 
     expect(page).to have_content 'Reserva para Grupo criada com sucesso'
+    expect(page).to have_content 'Reservas para Grupos:'
+    expect(page).to have_content 'Nome: Reunião Campus Code'
+    expect(page).to have_content "Data de Início: #{2.days.from_now.to_date}"
+    expect(page).to have_content "Data de Encerramento: #{1.week.from_now.to_date}"
   end
 end

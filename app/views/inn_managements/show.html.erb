@@ -32,6 +32,15 @@
     </div>
     <%= link_to 'Cadastrar Quarto', new_inn_dashboard_inns_inn_rooms_path, class: 'btn btn-primary' %>
   </section>
+  <section id="group_bookings" class="mt-3">
+    <h2>Reservas para Grupos:</h2>
+    <% @inn.group_bookings.each do |booking| %>
+      <%= GroupBooking.human_attribute_name(:name)%>: <%= booking.name %>
+      <%= GroupBooking.human_attribute_name(:start_date)%>: <%= booking.start_date %>
+      <%= GroupBooking.human_attribute_name(:end_date)%>: <%= booking.end_date %>
+      <%= link_to 'Adicionar Quarto', new_inn_dashboard_group_booking_booking_room_path(booking.id), class: 'btn btn-primary' %>
+    <% end %>
+  </section>
 <% else %>
   <h1>Pousadaria</h1>
   <p class="lead mb-3">Entre para gerenciar sua pousada.</p>
