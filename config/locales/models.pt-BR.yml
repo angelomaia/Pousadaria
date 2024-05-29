@@ -10,6 +10,9 @@ pt-BR:
       inn_room:
         one: Quarto
         other: Quartos
+      group_booking:
+        one: Reserva para Grupo
+        other: Reservas para Grupos
     attributes:
       inn_owner:
         email: 'E-mail'
@@ -35,3 +38,7 @@ pt-BR:
         guest_limit: 'Máximo de Hóspedes'
         photo: 'Foto'
         daily_rate_cents: 'Valor Diária'
+      group_booking:
+        name: 'Nome'
+        start_date: 'Data de Início'
+        end_date: 'Data de Encerramento'

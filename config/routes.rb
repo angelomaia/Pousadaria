@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     end
 
     resources :inn_rooms, only: [:show, :edit, :update]
+    resources :group_bookings, only: [:new, :create]
   end
 
   namespace :api do

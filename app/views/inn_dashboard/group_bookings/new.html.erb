@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to 'Gestão de Pousadas', inn_management_path %></li>
+    <li class="breadcrumb-item"><%= @inn.name %></li>
+    <li class="breadcrumb-item active" aria-current="page">Nova Reserva para Grupo</li>
+  </ol>
+</nav>
+<h1>Nova Reserva para Grupo</h1>
+<%= render partial: 'shared/record_errors', locals: { record: @group_booking } %>
+<%= form_with(model: @group_booking, url: inn_dashboard_group_bookings_path) do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  <div class="mb-3">
+    <%= f.label :start_date, class: "form-label"  %>
+    <%= f.date_field :start_date, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :end_date, class: "form-label"  %>
+    <%= f.date_field :end_date, class: "form-control" %>
+  </div>
+  <%= f.submit class: 'btn btn-success' %>
+<% end %>
